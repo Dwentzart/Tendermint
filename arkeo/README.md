@@ -81,7 +81,7 @@ sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $
 ```
 sudo tee /etc/systemd/system/arkeod.service > /dev/null <<EOF
 [Unit]
-Description=selfchain
+Description=arkeo
 After=network-online.target
 
 [Service]
