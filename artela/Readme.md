@@ -134,7 +134,7 @@ artelad q bank balances $(artelad keys show wallet -a)
 * create validator
 ```
 artelad tx staking create-validator \
---amount="1000000000uartela" \
+--amount="1000000000uart" \
 --pubkey=$(artelad tendermint show-validator) \
 --moniker=NodeName \
 --identity=create account on keybase \
@@ -147,7 +147,7 @@ artelad tx staking create-validator \
 --min-self-delegation=1000000000 \
 --broadcast-mode block \
 --gas-adjustment=1.2 \
---gas-prices="0.5uartela" \
+--gas-prices="0.5uart" \
 --gas=auto \
 --from=wallet
 ```
@@ -158,13 +158,13 @@ artelad tx staking edit-validator \
 --identity="" \
 --chain-id=artela_11822-1 \
 --gas-adjustment=1.2 \
---gas-prices="0.5uartela" \
+--gas-prices="0.5uart" \
 --gas=auto \
 --from=wallet
 ```
 * unjail validator
 ```
-artelad tx slashing unjail --from wallet --chain-id artela_11822-1 --gas-prices 0.5uartela --gas-adjustment 1.2 --gas auto
+artelad tx slashing unjail --from wallet --chain-id artela_11822-1 --gas-prices 0.5uart --gas-adjustment 1.2 --gas auto
 ```
 * check jailed reason
 ```
@@ -174,15 +174,15 @@ artelad query slashing signing-info $(artelad tendermint show-validator)
 
 * withdraw rewards
 ```
-artelad tx distribution withdraw-all-rewards --from wallet --chain-id artela_11822-1  --gas-adjustment 1.2 --gas-prices 0.05uartela --gas auto -y
+artelad tx distribution withdraw-all-rewards --from wallet --chain-id artela_11822-1  --gas-adjustment 1.2 --gas-prices 0.05uart --gas auto -y
 ```
 * withdraw rewards with comission
 ```
-artelad tx distribution withdraw-rewards $(artelad keys show wallet --bech val -a) --commission --from wallet --chain-id artela_11822-1  --gas-adjustment 1.2 --gas-prices 0.05uartela --gas auto -y
+artelad tx distribution withdraw-rewards $(artelad keys show wallet --bech val -a) --commission --from wallet --chain-id artela_11822-1  --gas-adjustment 1.2 --gas-prices 0.05uart --gas auto -y
 ```
 * delegate token to your own validator
 ```
-artelad tx staking delegate $(artelad keys show wallet --bech val -a) 1000000uartela --from wallet --chain-id artela_11822-1  --gas-adjustment 1.2 --gas-prices 0.05uartela --gas auto -y
+artelad tx staking delegate $(artelad keys show wallet --bech val -a) 1000000uart --from wallet --chain-id artela_11822-1  --gas-adjustment 1.2 --gas-prices 0.05uart --gas auto -y
 ```
 ### Node Info
 * node id
