@@ -78,7 +78,7 @@ sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $
 ```
 sudo tee /etc/systemd/system/entrypointd.service > /dev/null <<EOF
 [Unit]
-Description=selfchain
+Description=entrypoint
 After=network-online.target
 
 [Service]
@@ -144,7 +144,7 @@ entrypointd tx staking create-validator \
 --min-self-delegation=1000000000 \
 --broadcast-mode block \
 --gas-adjustment=1.2 \
---gas-prices="0.5uaum" \
+--gas-prices="0.01ibc/8A138BC76D0FB2665F8937EC2BF01B9F6A714F6127221A0E155106A45E09BCC5" \
 --gas=auto \
 --from=wallet
 ```
@@ -155,13 +155,13 @@ entrypointd tx staking edit-validator \
 --identity="" \
 --chain-id=entrypoint-pubtest-2 \
 --gas-adjustment=1.2 \
---gas-prices="0.5uaum" \
+--gas-prices="0.01ibc/8A138BC76D0FB2665F8937EC2BF01B9F6A714F6127221A0E155106A45E09BCC5" \
 --gas=auto \
 --from=wallet
 ```
 * unjail validator
 ```
-entrypointd tx slashing unjail --from wallet --chain-id entrypoint-pubtest-2 --gas-prices 0.5uaum --gas-adjustment 1.2 --gas auto
+entrypointd tx slashing unjail --from wallet --chain-id entrypoint-pubtest-2 --gas-prices 0.01ibc/8A138BC76D0FB2665F8937EC2BF01B9F6A714F6127221A0E155106A45E09BCC5 --gas-adjustment 1.2 --gas auto
 ```
 * check jailed reason
 ```
@@ -171,15 +171,15 @@ entrypointd query slashing signing-info $(entrypointd tendermint show-validator)
 
 * withdraw rewards
 ```
-entrypointd tx distribution withdraw-all-rewards --from wallet --chain-id entrypoint-pubtest-2  --gas-adjustment 1.2 --gas-prices 0.05uaum --gas auto -y
+entrypointd tx distribution withdraw-all-rewards --from wallet --chain-id entrypoint-pubtest-2  --gas-adjustment 1.2 --gas-prices 0.01ibc/8A138BC76D0FB2665F8937EC2BF01B9F6A714F6127221A0E155106A45E09BCC5 --gas auto -y
 ```
 * withdraw rewards with comission
 ```
-entrypointd tx distribution withdraw-rewards $(entrypointd keys show wallet --bech val -a) --commission --from wallet --chain-id entrypoint-pubtest-2  --gas-adjustment 1.2 --gas-prices 0.05uaum --gas auto -y
+entrypointd tx distribution withdraw-rewards $(entrypointd keys show wallet --bech val -a) --commission --from wallet --chain-id entrypoint-pubtest-2  --gas-adjustment 1.2 --gas-prices 0.01ibc/8A138BC76D0FB2665F8937EC2BF01B9F6A714F6127221A0E155106A45E09BCC5 --gas auto -y
 ```
 * delegate token to your own validator
 ```
-entrypointd tx staking delegate $(entrypointd keys show wallet --bech val -a) 1000000uaum --from wallet --chain-id entrypoint-pubtest-2  --gas-adjustment 1.2 --gas-prices 0.05uaum --gas auto -y
+entrypointd tx staking delegate $(entrypointd keys show wallet --bech val -a) 1000000uaum --from wallet --chain-id entrypoint-pubtest-2  --gas-adjustment 1.2 --gas-prices 0.01ibc/8A138BC76D0FB2665F8937EC2BF01B9F6A714F6127221A0E155106A45E09BCC5 --gas auto -y
 ```
 ### Node Info
 * node id
