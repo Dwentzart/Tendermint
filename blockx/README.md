@@ -71,6 +71,7 @@ sed -i 's|^pruning-keep-recent  *=.*|pruning-keep-recent = "100"|g' $HOME/.block
 sed -i 's|^pruning-interval *=.*|pruning-interval = "10"|g' $HOME/.blockxd/config/app.toml
 sed -i 's|^snapshot-interval *=.*|snapshot-interval = 2000|g' $HOME/.blockxd/config/app.toml
 sed -i 's|^prometheus *=.*|prometheus = true|' $HOME/.blockxd/config/config.toml
+```
 * Create service
 ```
 sudo tee /etc/systemd/system/blockxd.service > /dev/null <<EOF
